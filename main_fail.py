@@ -53,24 +53,6 @@ while cap.isOpened():
 
         right = 0
 
-        # вычислить, прямая ладонь или нет
-
-        for finger in fingers:
-            point_1 = finger[0]
-            point_2 = finger[1]
-
-            x1, y1 = de_size(results.multi_hand_landmarks[0].landmark, point_1, flippedRGB.shape)
-            x2, y2 = de_size(results.multi_hand_landmarks[0].landmark, point_2, flippedRGB.shape)
-
-            angle = math.degrees(math.atan(abs((y1 - y2) / (x1 - x2))))
-            if 75 <= angle <= 105:
-                right += 1
-
-        # если ладонь прямая, то очистить экран
-
-        if right == 4:
-            break
-
         # распознание двух пальцев
 
         x1_IF, y1_IF = de_size(results.multi_hand_landmarks[0].landmark, 8, flippedRGB.shape)
