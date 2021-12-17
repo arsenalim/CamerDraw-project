@@ -1,12 +1,11 @@
-Это приложение для рисования на экране в режиме реального времени. В можете запустить онлайн конференцию, включить демонстрацию экрана и иллюстрировать свои мысли, но при этом вас будет видно всем участникам конференции.
+This is an application for drawing on the screen in real time. You can start an online conference, turn on a screen demonstration and illustrate your thoughts, but at the same time you will be visible to all participants of the conference.
 
-Рисовать вы можете только одной рукой!!!
+You can only draw with one hand!!!
 
-Как рисовать:
--Водите рукой по экрану и за указательным пальцем будут появляться линии
--Ширину и цвет линии можно настроить в файле программы
--Если вы хотите отпустить кисть, выпрямите средний палец. Программа будет игнорировать вашу руку если ваши средний и указательный пальцы прямые, а остальные согнуты
--Когда вы сжимаете руку в кулак, экран очищается
+How to draw:
+-Move your hand across the screen and lines will appear behind your index finger
+-The width and color of the line can be adjusted in the program file
+-If you want to let go of the brush, straighten your middle finger. The program will ignore your hand if your middle and index fingers are straight, and the rest are bent
+-When you clench your hand into a fist, the screen clears
 
-Чтобы закрыть окно, нажмите на клавишу “Q”
-
+To close the window, press the ?Q? key
