@@ -63,7 +63,7 @@ while cap.isOpened():
         x_MF, y_MF = de_size(results.multi_hand_landmarks[0].landmark, 12, flippedRGB.shape)
         distance = math.hypot(x_MF - x1_IF, y_MF - y1_IF)
 
-        two_fingers = distance > index_finger / 4
+        two_fingers = distance > index_finger / 3
 
         # если пальци не близко то добавляем новую точку
 
