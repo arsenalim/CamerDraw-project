@@ -23,27 +23,26 @@ def de_size(landmark, no_of_point, shape):
 
 
 # открытие детектора и все настройки
+# opening the detector and all settings
 
-color = (0, 255, 0)            # настроить цвет линии
-width_px = 7                   # настроить ширину линии
+color = (0, 255, 0)            # настроить цвет линии / adjust the line color
+width_px = 7                   # настроить ширину линии / adjust the line width
 
 handsDetector = mp.solutions.hands.Hands()
 cap = cv2.VideoCapture(0)
 drawings = [[]]
 to_append_new = True
 
-# нужные для определения ладони точки
-
-fingers = [[5, 8], [9, 12], [13, 16], [17, 20]]
-
 # главный цикл
+# main cycle
 
 while cap.isOpened():
     ret, frame = cap.read()
     if cv2.waitKey(1) & 0xFF == ord('q') or not ret:
         break
 
-    # крнвертирование для обработки изображения
+    # конвертирование для обработки изображения
+    # image conversion for processing
 
     flipped = np.fliplr(frame)
     flippedRGB = cv2.cvtColor(flipped, cv2.COLOR_BGR2RGB)
@@ -54,6 +53,7 @@ while cap.isOpened():
         right = 0
 
         # распознание двух пальцев
+        # two finger recognition
 
         x1_IF, y1_IF = de_size(results.multi_hand_landmarks[0].landmark, 8, flippedRGB.shape)
         x2_IF, y2_IF = de_size(results.multi_hand_landmarks[0].landmark, 5, flippedRGB.shape)
@@ -65,7 +65,8 @@ while cap.isOpened():
 
         two_fingers = distance > index_finger / 3
 
-        # если пальци не близко то добавляем новую точку
+        # если пальцы не близко то добавляем новую точку
+        # if the fingers are not close, then add a new point
 
         if two_fingers:
             x = int(results.multi_hand_landmarks[0].landmark[8].x * flippedRGB.shape[1])
@@ -79,7 +80,8 @@ while cap.isOpened():
                 drawings.append([])
                 to_append_new = False
 
-        # распознование кулака
+        # распознание кулака
+        # fist recognition
 
         (x_, y_), r = cv2.minEnclosingCircle(get_points(results.multi_hand_landmarks[0].landmark, flippedRGB.shape))
         ws = palm_size(results.multi_hand_landmarks[0].landmark, flippedRGB.shape)
@@ -95,6 +97,7 @@ while cap.isOpened():
             to_append_new = False
 
     # рисование всех контуров
+    # drawing all contours
 
     for figure in drawings:
         if len(figure) > 1:
@@ -106,7 +109,8 @@ while cap.isOpened():
 
                 cv2.line(flippedRGB, (x1, y1), (x2, y2), color, width_px)
 
-    # конвертирование обратно и выавод изображения
+    # конвертирование обратно и вывод изображения
+    # converting back and outputting the image
 
     res_image = cv2.cvtColor(flippedRGB, cv2.COLOR_RGB2BGR)
     cv2.imshow("CamerDraw", res_image)
