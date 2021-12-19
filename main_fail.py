@@ -109,6 +109,6 @@ while cap.isOpened():
     # конвертирование обратно и выавод изображения
 
     res_image = cv2.cvtColor(flippedRGB, cv2.COLOR_RGB2BGR)
-    cv2.imshow("Draw", res_image)
+    cv2.imshow("CamerDraw", res_image)
 
 handsDetector.close()
