@@ -3,6 +3,8 @@ import mediapipe as mp
 import numpy as np
 import math
 
+'''Функция get_points возвращает список всех ключевых точек кисти, конвертированных в пиксели
+   The get_points function returns a list of all key brush points converted to pixels'''
 
 def get_points(landmark, shape):
     points = []
@@ -11,10 +13,20 @@ def get_points(landmark, shape):
     return np.array(points, dtype=np.int32)
 
 
+'''Функция palm_size находит расстояние между точками 0 и 5 (начало кисти и начало указательного пальца), 
+   для определения кулака
+   The palm_size function finds the distance between points 0 and 5 
+   (the beginning of the hand and the beginning of the index finger) to determine the fist'''
+
+
 def palm_size(landmark, shape):
     x_1, y_1 = landmark[0].x * shape[1], landmark[0].y * shape[0]
     x_2, y_2 = landmark[5].x * shape[1], landmark[5].y * shape[0]
     return ((x_1 - x_2) ** 2 + (y_1 - y_2) ** 2) ** 0.5
+
+
+'''Функция de_size конвертирует координаты изображения из частей (от 0 да 1) в количество пикселей
+   The function de_size converts the coordinates of the image from parts (from 0 to 1) to the number of pixels'''
 
 
 def de_size(landmark, no_of_point, shape):
