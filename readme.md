@@ -1,4 +1,4 @@
-#CamerDraw
+CamerDraw\
 This is a program for drawing on the screen in real time. You can start an online conference, turn on a screen demonstration and illustrate your thoughts, but at the same time you will be visible to all participants of the conference.
 
 You can only draw with one hand!
@@ -12,7 +12,7 @@ How to draw:
 
 To close the window, press the "Q" key
 
-#CamerDraw
+CamerDraw\
 Это программа для рисования на экране в режиме реального времени. Вы можете начать онлайн-конференцию, включить демонстрацию экрана и проиллюстрировать свои мысли, но при этом вы будете видны всем участникам конференции.
 
 Вы можете рисовать только одной рукой!
