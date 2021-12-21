@@ -6,6 +6,7 @@ import math
 '''Функция get_points возвращает список всех ключевых точек кисти, конвертированных в пиксели
    The get_points function returns a list of all key brush points converted to pixels'''
 
+
 def get_points(landmark, shape):
     points = []
     for mark in landmark:
